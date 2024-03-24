@@ -16,7 +16,7 @@ def main(args):
     X_train, X_test, y_train, y_test = split_data(df)
 
     # train model
-    model = train_model(args.reg_rate, X_train, X_test, y_train, y_test)
+    model = train_model(args.reg_rate, args.max_iter, X_train, y_train)
 
     # evaluate model
     eval_model(model, X_test, y_test)
