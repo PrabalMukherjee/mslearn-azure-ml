@@ -69,9 +69,9 @@ def eval_model(model, X_test, y_test):
     recall = tp/(tp+fn)
     precision = tp/(tp+fp)
 
-    print(f'F1 Score: {'{:.4f}'.format(f1_score)}')
-    print(f'Recall: {'{:.4f}'.format(recall)}')
-    print(f'Precision: {'{:.4f}'.format(precision)}')
+    print(f"F1 Score: {'{:.4f}'.format(f1_score)}")
+    print(f"Recall: {'{:.4f}'.format(recall)}")
+    print(f"Precision: {'{:.4f}'.format(precision)}")
 
 
 if __name__ == '__main__':
