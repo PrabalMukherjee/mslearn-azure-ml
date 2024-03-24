@@ -2,10 +2,9 @@
 import argparse
 import pandas as pd
 import numpy as np
-from sklearn.base import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, roc_auc_score
+from sklearn.metrics import confusion_matrix, roc_auc_score, accuracy_score
 
 
 def main(args):
