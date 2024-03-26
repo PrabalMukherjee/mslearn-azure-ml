@@ -9,7 +9,6 @@ from sklearn.metrics import confusion_matrix, roc_auc_score, accuracy_score ,roc
 import matplotlib.pyplot as plt
 
 def main(args):
-    mlflow.set_experiment('diabetes-classification')
     # read data
     df = get_data(args.training_data)
 
@@ -57,13 +56,14 @@ def getAccuracyScore(Y_actual, Y_prediction):
     Returns:
         _type_: accuracy in pct format
     """
-    return '{:.4f}%'.format(accuracy_score(Y_actual, Y_prediction) * 100)
+    acc_score = accuracy_score(Y_actual, Y_prediction) * 100
+    mlflow.log_metric("accuracy", acc_score)
+    return '{:.4f}%'.format(acc_score)
 
 def eval_model(model, X_test, y_test):
     y_hat = model.predict(X_test)
     acc_score = getAccuracyScore(y_test, y_hat)
     print('Accuracy:', acc_score)
-    mlflow.log_metric("accuracy", acc_score)
 
     y_scores = model.predict_proba(X_test)
     auc = roc_auc_score(y_test,y_scores[:,1])
